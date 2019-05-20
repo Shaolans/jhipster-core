@@ -24,6 +24,9 @@ steps:
     configMode: 'file'
     extraProperties: sonar.projectKey=Shaolans_jhipster-core
 
+- task: SonarCloudAnalyze@1
+  displayName: 'Run Code Analysis'
+
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
