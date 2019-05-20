@@ -21,7 +21,7 @@ steps:
     scannerMode: 'CLI'
     configMode: 'file'
     SonarQube: 'SonarCloud'
-    extraProperties: |
+    extraProperties:
       sonar.organization=shaolans-github
 
 - task: SonarCloudPublish@1
