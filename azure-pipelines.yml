@@ -49,4 +49,5 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
   displayName: 'SonarCloud: Publish results'
+
   
