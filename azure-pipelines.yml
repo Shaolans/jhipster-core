@@ -22,6 +22,7 @@ steps:
     organization: 'shaolans-github'
     scannerMode: 'CLI'
     configMode: 'file'
+    extraProperties: sonar.projectKey=Shaolans_jhipster-core
 
 - task: SonarCloudPublish@1
   inputs:
