@@ -17,6 +17,7 @@ steps:
   displayName: 'Run tests'
 
 - task: SonarCloudPrepare@1
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   inputs:
     SonarCloud: 'SonarCloud-Jhipster-Core'
     organization: 'shaolans-github'
@@ -25,9 +26,11 @@ steps:
     extraProperties: sonar.projectKey=Shaolans_jhipster-core
 
 - task: SonarCloudAnalyze@1
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   displayName: 'Run Code Analysis'
 
 - task: SonarCloudPublish@1
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   inputs:
     pollingTimeoutSec: '300'
 
