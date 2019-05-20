@@ -4,9 +4,9 @@ node_js:
   - "10"
 addons:
   sonarcloud:
-    organization: "jhipster"
+    organization: "shaolans-github"
 deploy:
   provider: script
   script: sonar-scanner
   on:
-    branch: master
+    branch: fix_sonar
