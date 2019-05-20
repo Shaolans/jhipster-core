@@ -23,6 +23,7 @@ steps:
     SonarQube: 'SonarCloud'
     extraProperties: |
       sonar.organization=shaolans-github
+      
   displayName: 'Configuring SonarCloud'
 
 - task: SonarCloudPublish@1
