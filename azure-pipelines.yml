@@ -16,16 +16,16 @@ steps:
     npm install
   displayName: 'Run tests'
 
-- task: SonarCloudPrepare@1
+- task: SonarQubePrepare@4
   inputs:
-    SonarCloud: jhipster-core
+    SonarQube: 'SonarCloud'
     scannerMode: 'CLI'
     configMode: 'file'
     extraProperties: |
       sonar.organization=shaolans-github
-      sonar.host.url=https://sonarcloud.io
 
-- task: SonarCloudPublish@1
+
+- task: SonarQubePublish@4
   inputs:
     pollingTimeoutSec: '300'
 
