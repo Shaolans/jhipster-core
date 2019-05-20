@@ -20,9 +20,9 @@ steps:
   inputs:
     scannerMode: 'CLI'
     configMode: 'file'
-    SonarQube: 'SonarCloud'
     extraProperties: |
       sonar.organization=shaolans-github
+      sonar.host.url=https://sonarcloud.io
 
 - task: SonarCloudPublish@1
   inputs:
