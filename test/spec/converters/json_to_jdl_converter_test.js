@@ -39,7 +39,7 @@ describe('JSONToJDLConverter', () => {
           fs.unlinkSync(path.join(dir, jdlFilename));
         });
 
-        it('writes a JDL file with the application', () => {
+        it('writes the JDL file with the application and the correct name', () => {
           expect(jdlFileContent).to.equal(`application {
   config {
     databaseType sql
@@ -184,6 +184,56 @@ relationship ManyToMany {
 }
 
 noFluentMethod Country, Department, Employee, Job, JobHistory, Location, Region, Task
+`);
+        });
+      });
+      context('with filename as a parameter', () => {
+        before(() => {
+          dir = path.join('test', 'test_files', 'json_to_jdl_converter', 'only_app');
+          jdlFilename = 'jhipster.jdl';
+          convertToJDL(dir, jdlFilename);
+          jdlFileContent = fs.readFileSync(path.join(dir, jdlFilename), 'utf-8');
+        });
+        after(() => {
+          fs.unlinkSync(path.join(dir, jdlFilename));
+        });
+
+        it('writes a JDL file with the application', () => {
+          expect(jdlFileContent).to.equal(`application {
+  config {
+    databaseType sql
+    devDatabaseType h2Disk
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation false
+    jhiPrefix jhi
+    languages [en, fr]
+    messageBroker false
+    nativeLanguage en
+    packageName com.mycompany.myapp
+    packageFolder com/mycompany/myapp
+    prodDatabaseType mysql
+    searchEngine false
+    serviceDiscoveryType eureka
+    skipClient true
+    testFrameworks []
+    websocket false
+    jhipsterVersion 6.0.1
+    applicationType microservice
+    baseName truc
+    serverPort 8081
+    authenticationType jwt
+    cacheProvider hazelcast
+    buildTool maven
+    jwtSecretKey HIDDEN
+    entitySuffix 
+    dtoSuffix DTO
+    otherModules 
+    clientPackageManager npm
+    skipUserManagement true
+  }
+}
+
 `);
         });
       });
